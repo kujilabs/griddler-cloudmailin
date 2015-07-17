@@ -7,7 +7,7 @@ describe Griddler::Cloudmailin::Adapter, '.normalize_params' do
       from: 'There <there@example.com>',
     },
     plain: 'hi',
-    headers: { Cc: 'emily@example.com' },
+    headers: { Cc: 'emily@example.com', XOriginalSender: 'frank@example.com' },
   }
 
   it 'normalizes parameters' do
@@ -16,7 +16,8 @@ describe Griddler::Cloudmailin::Adapter, '.normalize_params' do
       cc: ['emily@example.com'],
       from: 'Joe User <joeuser@example.com>',
       subject: 'Re: [ThisApp] That thing',
-      text: /Dear bob/
+      text: /Dear bob/,
+      headers: { Subject: 'Re: [ThisApp] That thing', Cc: 'emily@example.com', XOriginalSender: 'frank@example.com' }
     })
   end
 
@@ -37,7 +38,7 @@ describe Griddler::Cloudmailin::Adapter, '.normalize_params' do
   def default_params
     {
       envelope: { to: 'Some Identifier <some-identifier@example.com>', from: 'Joe User <joeuser@example.com>' },
-      headers: { Subject: 'Re: [ThisApp] That thing', Cc: 'emily@example.com' },
+      headers: { Subject: 'Re: [ThisApp] That thing', Cc: 'emily@example.com', XOriginalSender: 'frank@example.com' },
       plain: <<-EOS.strip_heredoc.strip
         Dear bob
 

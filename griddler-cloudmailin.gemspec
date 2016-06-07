@@ -6,10 +6,10 @@ require 'griddler/cloudmailin/version'
 Gem::Specification.new do |spec|
   spec.name          = "griddler-cloudmailin"
   spec.version       = Griddler::Cloudmailin::VERSION
-  spec.authors       = [""]
-  spec.email         = [""]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.authors       = ["Andy"]
+  spec.email         = ["andy@anenta.com"]
+  spec.summary       = %q{Write a short summary. Required.}
+  spec.description   = %q{Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
